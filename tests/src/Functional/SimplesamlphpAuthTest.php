@@ -91,7 +91,7 @@ class SimplesamlphpAuthTest extends BrowserTestBase {
     $this->submitForm($edit, t('Save block'));
 
     // Assert Login link in SimplesamlphpAuthBlock.
-    $this->assertSession()->elementTextContains('css', '#block-simplesamlphpauthstatus h2', 'SimpleSAMLphp Auth Status');
+    $this->assertSession()->elementTextContains('css', 'div[id$="simplesamlphpauthstatus"] h2', 'SimpleSAMLphp Auth Status');
     $this->drupalGet('<front>');
     $this->assertSession()->pageTextContains(t('Federated test login'));
     $this->assertSession()->linkByHrefExists('saml_login');
