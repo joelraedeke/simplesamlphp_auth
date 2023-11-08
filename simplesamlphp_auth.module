@@ -215,6 +215,6 @@ function simplesamlphp_auth_user_form_submit($form, FormStateInterface $form_sta
   }
   // Remove this user from the ExternalAuth authmap table.
   else {
-    $authmap->delete($form_state->getValue('uid'));
+    $authmap->delete($form_state->getValue('uid'), 'simplesamlphp_auth');
   }
 }
