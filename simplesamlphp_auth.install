@@ -12,21 +12,22 @@ use Drupal\Core\Site\Settings;
 /**
  * Implements hook_install().
  */
-function simplesamlphp_auth_install() {
+function simplesamlphp_auth_install($is_syncing) {
+  if (!$is_syncing) {
+    user_role_revoke_permissions(AccountInterface::AUTHENTICATED_ROLE, ['change own password']);
 
-  user_role_revoke_permissions(AccountInterface::AUTHENTICATED_ROLE, ['change own password']);
-
-  // Disable the open registration to the site and store the original setting.
-  $user_settings = \Drupal::configFactory()->getEditable('user.settings');
-  $config = \Drupal::configFactory()->getEditable('simplesamlphp_auth.settings');
-  $config->set('user_register_original', $user_settings->get('register'));
-  $user_settings->set('register', 'admin_only');
-  $user_settings->save();
-  // Inform the user about disabling the open registration.
-  \Drupal::messenger()->addMessage(t('The SimpleSAMLphp Authentication module disabled the user registration. You can manually enable it again in the <a href=":user_settings_url">Account settings</a>.', [
-    ':user_settings_url' => Url::fromRoute('entity.user.admin_form')->toString(),
-  ]), 'warning');
-  $config->save();
+    // Disable the open registration to the site and store the original setting.
+    $user_settings = \Drupal::configFactory()->getEditable('user.settings');
+    $config = \Drupal::configFactory()->getEditable('simplesamlphp_auth.settings');
+    $config->set('user_register_original', $user_settings->get('register'));
+    $user_settings->set('register', 'admin_only');
+    $user_settings->save();
+    // Inform the user about disabling the open registration.
+    \Drupal::messenger()->addMessage(t('The SimpleSAMLphp Authentication module disabled the user registration. You can manually enable it again in the <a href=":user_settings_url">Account settings</a>.', [
+        ':user_settings_url' => Url::fromRoute('entity.user.admin_form')->toString(),
+    ]), 'warning');
+    $config->save();
+  }
 }
 
 /**
