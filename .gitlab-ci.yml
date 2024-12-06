@@ -49,6 +49,10 @@ include:
 # variables:
 #   SKIP_ESLINT: '1'
 
+composer:
+ variables:
+   DRUPAL_CORE: $CORE_PREVIOUS_STABLE  
+
 ###################################################################################
 #
 #                                        *

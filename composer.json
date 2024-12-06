@@ -6,12 +6,13 @@
     "homepage": "https://www.drupal.org/project/simplesamlphp_auth",
     "require": {
         "drupal/externalauth": "^1.1 || ^2.0",
-        "simplesamlphp/simplesamlphp": "^1.19 || ^2.1 || dev-simplesamlphp-2.1",
+        "simplesamlphp/simplesamlphp": "^1.19 || ^2.3.5",
         "drupal/core": "^9.4 || ^10"
     },
     "config": {
         "allow-plugins": {
-            "simplesamlphp/composer-module-installer": true
+            "simplesamlphp/composer-module-installer": true,
+            "simplesamlphp/composer-xmlprovider-installer": true
         }
     }
 }
