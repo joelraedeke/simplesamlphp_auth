@@ -14,5 +14,10 @@
             "simplesamlphp/composer-module-installer": true,
             "simplesamlphp/composer-xmlprovider-installer": true
         }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-4.x": "4.0.x-dev"
+        }
     }
 }
