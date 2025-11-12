@@ -5,9 +5,9 @@
     "license": "GPL-2.0+",
     "homepage": "https://www.drupal.org/project/simplesamlphp_auth",
     "require": {
-        "drupal/externalauth": "^1.1 || ^2.0",
-        "simplesamlphp/simplesamlphp": "^1.19 || ^2.3.5",
-        "drupal/core": "^9.4 || ^10"
+        "drupal/externalauth": "^2.0",
+        "simplesamlphp/simplesamlphp": "dev-simplesamlphp-2.5",
+        "drupal/core": "^11"
     },
     "config": {
         "allow-plugins": {
