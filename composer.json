@@ -10,6 +10,7 @@
     "license": "GPL-2.0+",
     "homepage": "https://www.drupal.org/project/simplesamlphp_auth",
     "require": {
+        "guzzlehttp/psr7": "~2.7.1",
         "drupal/externalauth": "^2.0",
         "simplesamlphp/simplesamlphp": "dev-simplesamlphp-2.5",
         "drupal/core": "^11"
